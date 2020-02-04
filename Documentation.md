@@ -1849,7 +1849,7 @@ Example get player eye angles:
 hPlayer <- VS.GetLocalPlayer()
 hPlayerEye <- VS.CreateMeasure(hPlayer.GetName())
 
-printl("Player eye angles: " + hPlayerEye.GetAngles() )
+printl("Player eye angles: " + VecToString(hPlayerEye.GetAngles()) )
 ```
 
 Example check to prevent spawning if the entities are already spawned
@@ -1894,6 +1894,26 @@ ________________________________
 void VS::SetMeasure(handle logic_measure_movement, char targetTargetname)
 ```
 Start measuring new target
+
+<details><summary>Example</summary>
+
+```cs
+hPlayer1 <- VS.GetLocalPlayer()
+hPlayer2 <- GetSomeOtherPlayer()
+
+// start measuring hPlayer1
+hPlayerEye <- VS.CreateMeasure(hPlayer1.GetName())
+
+printl("Player1 eye angles: " + VecToString(hPlayerEye.GetAngles()) )
+
+// start measuring hPlayer2
+VS.SetMeasure( hPlayerEye, hPlayer2.GetName() )
+
+printl("Player2 eye angles: " + VecToString(hPlayerEye.GetAngles()) )
+```
+
+</details>
+
 ________________________________
 
 <a name="f_CreateTimer"></a>
